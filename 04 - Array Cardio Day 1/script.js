@@ -231,6 +231,19 @@ console.table(oldest3);
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+const category = document.querySelector('.mw-category');
+
+// Convert node list into an array method 1 (Array.from)
+const links = Array.from(category.querySelectorAll('a'));
+
+// Convert node list into an array method 2 (Spread operator)
+// THe spread operator takes every item out of an iterable (in this case a node list, and will put it into the containing array)
+// const links = [...category.querySelectorAll('a')];
+
+const de = links
+  .map((link) => link.textContent)
+  .filter((streetName) => streetName.includes('de'));
+
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 
