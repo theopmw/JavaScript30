@@ -231,21 +231,43 @@ console.table(oldest3);
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-const category = document.querySelector('.mw-category');
+// const category = document.querySelector('.mw-category');
 
 // Convert node list into an array method 1 (Array.from)
-const links = Array.from(category.querySelectorAll('a'));
+// const links = Array.from(category.querySelectorAll('a'));
 
 // Convert node list into an array method 2 (Spread operator)
 // THe spread operator takes every item out of an iterable (in this case a node list, and will put it into the containing array)
 // const links = [...category.querySelectorAll('a')];
 
-const de = links
-  .map((link) => link.textContent)
-  .filter((streetName) => streetName.includes('de'));
+// const de = links
+//   .map((link) => link.textContent)
+//   .filter((streetName) => streetName.includes('de'));
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+// Using regular function
+const alpha = people.sort(function (lastOne, nextOne) {
+  // Split names into first and last
+  const [aLast, aFirst] = lastOne.split(', ');
+  const [bLast, bFirst] = nextOne.split(', ');
+
+  return aLast > bLast ? 1 : -1;
+});
+
+console.log(alpha);
+
+// Using arrow function
+const alpha2 = people.sort((lastOne, nextOne) => {
+  // Split names into first and last
+  const [aLast, aFirst] = lastOne.split(', ');
+  const [bLast, bFirst] = nextOne.split(', ');
+
+  return aLast > bLast ? 1 : -1;
+});
+
+console.log(alpha2);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
