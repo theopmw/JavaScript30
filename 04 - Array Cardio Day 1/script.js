@@ -193,9 +193,40 @@ const totalYears = inventors.reduce((total, inventor) => {
   return total + (inventor.passed - inventor.year);
 }, 0);
 
-console.log(totalYears);
+console.log('Total years lived: ' + totalYears);
 
 // 5. Sort the inventors by years lived
+
+// Using regular function and if/else
+const oldest = inventors.sort(function (a, b) {
+  const lastGuy = a.passed > a.lived;
+  const nextGuy = b.passed > b.lived;
+  if (lastGuy > nextGuy) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+
+console.table(oldest);
+
+// Using regular function and ternarary operator
+const oldest2 = inventors.sort(function (a, b) {
+  const lastGuy = a.passed > a.lived;
+  const nextGuy = b.passed > b.lived;
+  return lastGuy > nextGuy ? -1 : 1;
+});
+
+console.table(oldest2);
+
+// Using arrow function and ternarary operator
+const oldest3 = inventors.sort((a, b) => {
+  const lastGuy = a.passed > a.lived;
+  const nextGuy = b.passed > b.lived;
+  return lastGuy > nextGuy ? -1 : 1;
+});
+
+console.table(oldest3);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
