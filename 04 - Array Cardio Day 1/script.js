@@ -152,7 +152,18 @@ console.table(fifteenInline);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
-const name = inventors.map(invento);
+const fullNames = inventors.map(
+  (inventor) => inventor.first + ' ' + inventor.last
+);
+
+console.table(fullNames);
+
+// Using template strings/template literals
+const fullNames2 = inventors.map(
+  (inventor) => `${inventor.first} ${inventor.last}`
+);
+
+console.table(fullNames2);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
